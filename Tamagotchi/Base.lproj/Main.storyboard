@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="skt-Wx-O2d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="skt-Wx-O2d">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -23,17 +23,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opg-fX-1FX">
-                                <rect key="frame" x="272" y="450" width="57" height="30"/>
-                                <state key="normal" title="Settings"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q83-ms-qWh">
-                                <rect key="frame" x="279" y="510" width="42" height="30"/>
-                                <state key="normal" title="About"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1X-Se-uEY">
-                                <rect key="frame" x="283" y="390" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1X-Se-uEY">
+                                <rect key="frame" x="285" y="479" width="30" height="30"/>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="skt-Wx-O2d" eventType="touchUpInside" id="enz-Db-vzw"/>
                                 </connections>
@@ -43,18 +34,11 @@
                         <constraints>
                             <constraint firstItem="R1X-Se-uEY" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="13a-t5-MrU"/>
                             <constraint firstItem="jY2-Gb-MWi" firstAttribute="top" secondItem="Dti-9y-n6C" secondAttribute="bottom" constant="35" id="6p7-GQ-ibc"/>
-                            <constraint firstItem="q83-ms-qWh" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="C1k-DQ-8W1"/>
-                            <constraint firstItem="q83-ms-qWh" firstAttribute="top" secondItem="Opg-fX-1FX" secondAttribute="bottom" constant="30" id="NH6-e1-4Ea"/>
-                            <constraint firstItem="Opg-fX-1FX" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="ex6-yY-I3o"/>
-                            <constraint firstItem="Opg-fX-1FX" firstAttribute="top" secondItem="R1X-Se-uEY" secondAttribute="bottom" constant="30" id="f0W-3f-uKg"/>
-                            <constraint firstItem="18F-XW-r6l" firstAttribute="top" secondItem="q83-ms-qWh" secondAttribute="bottom" constant="60" id="oIm-Fo-wiR"/>
                             <constraint firstItem="jY2-Gb-MWi" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="pfY-QU-khv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="TitleLabel" destination="jY2-Gb-MWi" id="Gwf-Ep-a4l"/>
-                        <outlet property="aboutButton" destination="q83-ms-qWh" id="OSu-mn-iaf"/>
-                        <outlet property="settingsButton" destination="Opg-fX-1FX" id="ga8-6R-Nf0"/>
                         <outlet property="startButton" destination="R1X-Se-uEY" id="1YX-Ue-AZ9"/>
                         <segue destination="knR-h3-Cx1" kind="show" id="NDr-cu-2gb"/>
                     </connections>
