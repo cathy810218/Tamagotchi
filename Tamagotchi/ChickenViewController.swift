@@ -12,6 +12,9 @@ import SnapKit
 
 class ChickenViewController: UIViewController {
     
+    private let toMini = UIButton()
+
+    
     var petType: String?
     var collectionView: UICollectionView?
 
@@ -76,6 +79,23 @@ class ChickenViewController: UIViewController {
         petImageView.snp_makeConstraints { (make) in
             make.centerX.equalTo(view)
             make.bottom.equalTo(collectionView.snp_top).offset(0)
+            make.size.equalTo(CGSizeMake(100, 100))
+        }
+        
+        
+        
+        
+        
+        // toMini
+        let photo = UIImage(named: "game")
+        toMini.setBackgroundImage(photo, forState: .Normal)
+        toMini.addTarget(self, action: #selector(toMiniGame(_:)), forControlEvents: .TouchUpInside)
+        view.addSubview(toMini)
+        
+        
+        toMini.snp_makeConstraints { (make) in
+            make.bottom.equalTo(view).offset(20)
+            make.left.equalTo(10)
             make.size.equalTo(CGSizeMake(100, 100))
         }
         
@@ -161,6 +181,15 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         }
         
         return cell
+    }
+    
+    
+    
+    func toMiniGame(sender: UIButton) {
+        let storyboardY = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboardY.instantiateViewControllerWithIdentifier("instruction") as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
