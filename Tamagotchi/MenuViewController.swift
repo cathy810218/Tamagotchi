@@ -73,9 +73,14 @@ class MenuViewController: UIViewController {
         }
         view.sendSubviewToBack(backgroundImg)
         
-        startButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
-        settingsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
-        aboutButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
+        let startImage = UIImage(named: "start")
+        startButton.setBackgroundImage(startImage, forState: .Normal)
+        
+        startButton.snp_makeConstraints { (make) in
+            make.centerX.equalTo(view)
+            make.size.equalTo(CGSizeMake(150, 75))
+        }
+        
         TitleLabel.font = UIFont(name: "Chalkduster", size: 40)
         
         

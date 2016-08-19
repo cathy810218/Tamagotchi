@@ -76,6 +76,7 @@ class ChooseEggViewController: UIViewController {
             make.size.equalTo(eggSize)
         }
         
+        
         let chickImg = UIImage(named: "chickenEgg")
         chickenEgg.setBackgroundImage(chickImg, forState: .Normal)
         chickenEgg.addTarget(self, action: #selector(eggButtonPressed(_:)), forControlEvents: .TouchUpInside)
