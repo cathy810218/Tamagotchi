@@ -135,10 +135,9 @@ class ChickenViewController: UIViewController {
 
     }
     
-    func eating(completion: (completion: String) -> Void) {
-        petImageView.animationRepeatCount = 3
+    func eating() {
         petImageView.animationImages = eatingImages
-        petImageView.animationDuration = 2
+        petImageView.animationDuration = 1.5
         petImageView.startAnimating()
         
     }
@@ -174,17 +173,24 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         currentFoodImageView.image = selectedArray![indexPath.row]
         
         // feed it
+        
         view.addSubview(currentFoodImageView)
         currentFoodImageView.snp_makeConstraints { (make) in
             make.size.equalTo(CGSizeMake(60, 60))
             make.right.equalTo(petImageView.snp_left).offset(50)
             make.centerY.equalTo(petImageView).offset(20)
         }
-        selectedArray?.removeAtIndex(indexPath.row)
+        foodArray.removeAtIndex(indexPath.row)
         
         collectionView.reloadData()
+        eating()
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
+        dispatch_after(delayTime, dispatch_get_main_queue()) {
+            self.petImageView.stopAnimating()
+        }
         
-
+        
+        
     }
 }
 
