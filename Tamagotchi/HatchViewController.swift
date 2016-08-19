@@ -16,18 +16,19 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
     private let eggImgView = UIImageView()
     private let titleLabel = UILabel()
     private let backButton = UIButton()
+    private let nextButton = UIButton()
+    private let petLabel   = UILabel()
+    private let heartImgView = UIImageView()
     
     func gestureRecognizer(_: UIGestureRecognizer,
-        shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+                           shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
         return true
     }
-
+    
     override func viewWillAppear(animated: Bool) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         view.backgroundColor = UIColor.whiteColor()
         view.addSubview(eggImgView)
@@ -38,6 +39,7 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         eggImgView.image = UIImage(named: petType!)
         eggImgView.userInteractionEnabled = true
         
+        // title label
         titleLabel.text = "Tap to Hatch"
         titleLabel.font = UIFont(name: "Chalkduster", size: 30)
         view.addSubview(titleLabel)
@@ -45,9 +47,44 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
             make.centerX.equalTo(self.view)
             make.top.equalTo(80)
         }
-        let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        
+        // petLabel
+        petLabel.text = "You've got a chicken"
+        petLabel.font = UIFont(name: "Chalkduster", size: 30)
+        petLabel.hidden = true
+        view.addSubview(petLabel)
+        petLabel.snp_makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp_bottom).offset(30)
+            make.centerX.equalTo(view)
+        }
+        
+        
+        // next button
+        nextButton.setBackgroundImage(UIImage(named: "next"), forState: .Normal)
+        nextButton.addTarget(self, action: #selector(presentPetView(_:)), forControlEvents: .TouchUpInside)
+        
+        nextButton.hidden = true
+        view.addSubview(nextButton)
+        nextButton.snp_makeConstraints { (make) in
+            make.top.equalTo(eggImgView.snp_bottom).offset(100)
+            make.centerX.equalTo(view)
+            make.size.equalTo(CGSizeMake(150, 150))
+            
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tap.delegate = self
         eggImgView.addGestureRecognizer(tap)
+        
+        
+        heartImgView.image = UIImage(named: "heart")
+        heartImgView.hidden = true
+        view.addSubview(heartImgView)
+        heartImgView.snp_makeConstraints { (make) in
+            make.size.equalTo(CGSizeMake(20, 20))
+            make.right.equalTo(eggImgView.snp_left).offset(10)
+            make.top.equalTo(eggImgView).offset(-10)
+        }
     }
     
     var rotateDirection = true
@@ -61,36 +98,41 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         UIView.animateWithDuration(0.2, delay: 0.0,
                                    options: [.Autoreverse] , animations: {
                                     self.eggImgView.transform = CGAffineTransformMakeRotation(self.rotateAngle)
-
+                                    
             }, completion: nil)
         self.eggImgView.transform = CGAffineTransformMakeRotation(0)
         rotateDirection = !rotateDirection
         
-        numberOfTapsSoFar++;
+        numberOfTapsSoFar += 1
         if(numberOfTapsSoFar > 1) {
             eggImgView.image = UIImage(named: "cracked_egg_1")
         }
         if (numberOfTapsSoFar > 2) {
             eggImgView.image = UIImage(named: "cracked_egg_2")
-
+            
         }
         
         if (numberOfTapsSoFar > 3) {
-//            eggImgView.center.y += 15
             UIView.animateWithDuration(0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
-//                self.eggImgView.center.y -= 60.0
-
                 
                 }, completion: { (true) in
-//                    self.eggImgView.center.y -= 60.0
+                    self.eggImgView.image = UIImage(named: "chicken_close")
+                    self.nextButton.hidden = false
+                    self.titleLabel.text = "YAY!"
+                    self.petLabel.hidden = false
+                    self.heartImgView.hidden = false
             })
-
-                       eggImgView.image = UIImage(named: "chicken")
-
-
+            
+            
         }
-        
-        // handling code
     }
+    
+    func presentPetView(sender: UIButton) {
+        heartImgView.hidden = false
 
-   }
+        
+        let checkenVC = ChickenViewController()
+        checkenVC.petType = "chicken"
+        presentViewController(checkenVC, animated: false, completion: nil)
+    }
+}
