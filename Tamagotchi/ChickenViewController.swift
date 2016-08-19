@@ -204,10 +204,8 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         
         collectionView.reloadData()
         eating()
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            self.petImageView.stopAnimating()
-        }
+
+        self.petImageView.stopAnimating()
         
         
         
