@@ -18,7 +18,8 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
     private let backButton = UIButton()
     private let nextButton = UIButton()
     private let petLabel   = UILabel()
-
+    private let heartImgView = UIImageView()
+    
     func gestureRecognizer(_: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
         return true
@@ -74,6 +75,16 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tap.delegate = self
         eggImgView.addGestureRecognizer(tap)
+        
+        
+        heartImgView.image = UIImage(named: "heart")
+        heartImgView.hidden = true
+        view.addSubview(heartImgView)
+        heartImgView.snp_makeConstraints { (make) in
+            make.size.equalTo(CGSizeMake(20, 20))
+            make.right.equalTo(eggImgView.snp_left).offset(10)
+            make.top.equalTo(eggImgView).offset(-10)
+        }
     }
     
     var rotateDirection = true
@@ -102,23 +113,24 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         if (numberOfTapsSoFar > 3) {
-            //            eggImgView.center.y += 15
             UIView.animateWithDuration(0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
                 
                 }, completion: { (true) in
-                    self.eggImgView.image = UIImage(named: "chicken")
+                    self.eggImgView.image = UIImage(named: "chicken_close")
                     self.nextButton.hidden = false
                     self.titleLabel.text = "YAY!"
                     self.petLabel.hidden = false
+                    self.heartImgView.hidden = false
             })
             
             
         }
-        
-        // handling code
     }
     
     func presentPetView(sender: UIButton) {
+        heartImgView.hidden = false
+
+        
         let checkenVC = ChickenViewController()
         checkenVC.petType = "chicken"
         presentViewController(checkenVC, animated: false, completion: nil)

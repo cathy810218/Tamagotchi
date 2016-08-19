@@ -35,10 +35,12 @@ class ChickenViewController: UIViewController {
         if let petType = petType {
             switch petType {
             case "chicken":
-                petImageView.animationImages = motionImage
-                petImageView.image = UIImage(named: "chicken")!
-                motionImage.append(UIImage(named: "chicken")!)
+                motionImage.append(UIImage(named: "chicken_left")!)
                 motionImage.append(UIImage(named: "chicken_close")!)
+                motionImage.append(UIImage(named: "chicken_right")!)
+                petImageView.animationImages = motionImage
+                petImageView.image = UIImage(named: "chicken_close")!
+                
             case "dragon" :
                 motionImage.append(UIImage(named: "chicken")!)
                 motionImage.append(UIImage(named: "chicken_close")!)
@@ -46,11 +48,6 @@ class ChickenViewController: UIViewController {
                 break
             }
             
-        }
-        view.addSubview(petImageView)
-        petImageView.snp_makeConstraints { (make) in
-            make.center.equalTo(view)
-            make.size.equalTo(CGSizeMake(100, 100))
         }
         
         let flowLayout = UICollectionViewFlowLayout()
@@ -69,6 +66,13 @@ class ChickenViewController: UIViewController {
             make.bottom.equalTo(view)
             make.width.equalTo(view)
             make.height.equalTo(220)
+        }
+        
+        view.addSubview(petImageView)
+        petImageView.snp_makeConstraints { (make) in
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(collectionView.snp_top).offset(0)
+            make.size.equalTo(CGSizeMake(100, 100))
         }
         
         // add food
@@ -107,18 +111,30 @@ class ChickenViewController: UIViewController {
     }
     
     func showFoods(sender: UIButton) {
+        petImageView.animationDuration = 2.5
+        petImageView.startAnimating()
         
+        
+        
+        collectionView?.hidden = false
+        collectionView?.reloadData()
     }
     
     func showWeapons(sender: UIButton) {
-        
+        collectionView?.hidden = false
+        collectionView?.reloadData()
+
+    }
+    
+    func eating() {
+//        currentFoodImageView.animate
     }
 }
 
 //MARK: UICollectionView
 extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return foodArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -130,6 +146,8 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        petImageView.stopAnimating()
+        
         // pet opens its mouse
         petImageView.image = UIImage(named: "chicken_open")
         
@@ -139,11 +157,15 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         // feed it
         view.addSubview(currentFoodImageView)
         currentFoodImageView.snp_makeConstraints { (make) in
-            make.size.equalTo(petImageView.snp_size)
+            make.size.equalTo(CGSizeMake(60, 60))
             make.right.equalTo(petImageView.snp_left).offset(50)
             make.centerY.equalTo(petImageView).offset(20)
         }
         
+        foodArray.removeAtIndex(indexPath.row)
+        collectionView.reloadData()
+        
+        eating()
     }
 }
 
