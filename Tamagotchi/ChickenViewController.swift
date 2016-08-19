@@ -180,7 +180,7 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
             make.right.equalTo(petImageView.snp_left).offset(50)
             make.centerY.equalTo(petImageView).offset(20)
         }
-        foodArray.removeAtIndex(indexPath.row)
+        selectedArray!.removeAtIndex(indexPath.row)
         
         collectionView.reloadData()
         eating()
