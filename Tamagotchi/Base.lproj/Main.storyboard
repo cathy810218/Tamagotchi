@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="skt-Wx-O2d">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Menu View Controller-->
+        <scene sceneID="fQ7-G9-cxC">
+            <objects>
+                <viewController id="skt-Wx-O2d" customClass="MenuViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dti-9y-n6C"/>
+                        <viewControllerLayoutGuide type="bottom" id="18F-XW-r6l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CRf-T3-6Sx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tamagotchi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jY2-Gb-MWi">
+                                <rect key="frame" x="255" y="55" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opg-fX-1FX">
+                                <rect key="frame" x="272" y="450" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q83-ms-qWh">
+                                <rect key="frame" x="279" y="510" width="42" height="30"/>
+                                <state key="normal" title="About"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1X-Se-uEY">
+                                <rect key="frame" x="283" y="390" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="skt-Wx-O2d" eventType="touchUpInside" id="enz-Db-vzw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R1X-Se-uEY" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="13a-t5-MrU"/>
+                            <constraint firstItem="jY2-Gb-MWi" firstAttribute="top" secondItem="Dti-9y-n6C" secondAttribute="bottom" constant="35" id="6p7-GQ-ibc"/>
+                            <constraint firstItem="q83-ms-qWh" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="C1k-DQ-8W1"/>
+                            <constraint firstItem="q83-ms-qWh" firstAttribute="top" secondItem="Opg-fX-1FX" secondAttribute="bottom" constant="30" id="NH6-e1-4Ea"/>
+                            <constraint firstItem="Opg-fX-1FX" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="ex6-yY-I3o"/>
+                            <constraint firstItem="Opg-fX-1FX" firstAttribute="top" secondItem="R1X-Se-uEY" secondAttribute="bottom" constant="30" id="f0W-3f-uKg"/>
+                            <constraint firstItem="18F-XW-r6l" firstAttribute="top" secondItem="q83-ms-qWh" secondAttribute="bottom" constant="60" id="oIm-Fo-wiR"/>
+                            <constraint firstItem="jY2-Gb-MWi" firstAttribute="centerX" secondItem="CRf-T3-6Sx" secondAttribute="centerX" id="pfY-QU-khv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TitleLabel" destination="jY2-Gb-MWi" id="Gwf-Ep-a4l"/>
+                        <outlet property="aboutButton" destination="q83-ms-qWh" id="OSu-mn-iaf"/>
+                        <outlet property="settingsButton" destination="Opg-fX-1FX" id="ga8-6R-Nf0"/>
+                        <outlet property="startButton" destination="R1X-Se-uEY" id="1YX-Ue-AZ9"/>
+                        <segue destination="knR-h3-Cx1" kind="show" id="NDr-cu-2gb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dG-GE-csO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746" y="352"/>
+        </scene>
+        <!--Choose Egg View Controller-->
+        <scene sceneID="Hc2-mI-Agt">
+            <objects>
+                <viewController id="knR-h3-Cx1" customClass="ChooseEggViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tmf-mT-6f0"/>
+                        <viewControllerLayoutGuide type="bottom" id="NgE-sc-N0h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K3A-GP-JV1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnX-zQ-yTe">
+                                <rect key="frame" x="142" y="225" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-rq-qbV">
+                                <rect key="frame" x="369" y="225" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zc-ME-pTU">
+                                <rect key="frame" x="384" y="432" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your egg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLW-bN-W3t">
+                                <rect key="frame" x="235" y="68" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqf-Gg-2gM">
+                                <rect key="frame" x="142" y="432" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="OLW-bN-W3t" id="xte-UJ-1zZ"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="GameVC" id="lQL-d7-2Oz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3W-NR-lw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74" y="352"/>
+        </scene>
+        <!--Chicken View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController storyboardIdentifier="ChickenVC" id="BV1-FR-VrT" customClass="ChickenViewController" customModule="Tamagotchi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1GE-7m-H6m"/>
+                        <viewControllerLayoutGuide type="bottom" id="0mC-Md-pcG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XhY-9x-Zle">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="352"/>
+        </scene>
+    </scenes>
+</document>
