@@ -9,18 +9,52 @@
 import Foundation
 import UIKit
 import SnapKit
+import AVFoundation
 
 class ChooseEggViewController: UIViewController {
+    
+    var player: AVAudioPlayer?
+    
+    func playSound() {
+        let url = NSBundle.mainBundle().URLForResource("harlem", withExtension: "mp3")!
+        
+        do {
+            player = try AVAudioPlayer(contentsOfURL: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
+    }
+    func stopSound() {
+        let url = NSBundle.mainBundle().URLForResource("harlem", withExtension: "mp3")!
+        
+        do {
+            player = try AVAudioPlayer(contentsOfURL: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.stop()
+        } catch let error as NSError {
+            print(error.description)
+        }
+        
+    }
+
     
     private var titleLabel = UILabel()
     private var dragonEgg  = UIButton()
     private var chickenEgg = UIButton()
     private var egg        = UIButton()
     private var egg2       = UIButton()
+    private var backButton = UIButton()
     private let eggSize    = CGSizeMake(150, 150)
     var chickenVC = ChickenViewController()
     
     override func viewDidLoad() {
+        playSound()
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor()
         titleLabel.font = UIFont(name: "Chalkduster", size: 30)
@@ -31,6 +65,19 @@ class ChooseEggViewController: UIViewController {
             make.top.equalTo(50)
             make.width.equalTo(view)
         }
+        
+        let back = UIImage(named: "pre")
+        backButton.setBackgroundImage(back, forState: .Normal)
+        backButton.addTarget(self, action: #selector(backToMenu(_:)), forControlEvents: .TouchUpInside)
+        view.addSubview(backButton)
+        
+        
+        backButton.snp_makeConstraints { (make) in
+            make.bottom.equalTo(view).offset(20)
+            make.left.equalTo(10)
+            make.size.equalTo(eggSize)
+        }
+        
         
         let dragImg = UIImage(named: "dragonEgg")
         dragonEgg.setBackgroundImage(dragImg, forState: .Normal)
@@ -70,6 +117,14 @@ class ChooseEggViewController: UIViewController {
             make.right.equalTo(-30)
         }
     }
+    func backToMenu(sender: UIButton) {
+        let storyboardY = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboardY.instantiateViewControllerWithIdentifier("MenuViewController") as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
+   
     
     func eggButtonPressed(sender: UIButton) {
         switch sender {

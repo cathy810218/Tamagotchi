@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 import SnapKit
 
 enum UIModalTransitionStyle : Int {
@@ -16,6 +17,39 @@ enum UIModalTransitionStyle : Int {
     case CrossDissolve
     case PartialCurl
 }
+
+
+var player: AVAudioPlayer?
+
+func playSound() {
+    let url = NSBundle.mainBundle().URLForResource("penny", withExtension: "mp3")!
+    
+    do {
+        player = try AVAudioPlayer(contentsOfURL: url)
+        guard let player = player else { return }
+        
+        player.prepareToPlay()
+        player.play()
+    } catch let error as NSError {
+        print(error.description)
+    }
+}
+func stopSound() {
+    let url = NSBundle.mainBundle().URLForResource("penny", withExtension: "mp3")!
+    
+    do {
+        player = try AVAudioPlayer(contentsOfURL: url)
+        guard let player = player else { return }
+        
+        player.prepareToPlay()
+        player.stop()
+    } catch let error as NSError {
+        print(error.description)
+    }
+    
+}
+
+
 
 class MenuViewController: UIViewController {
     
@@ -28,7 +62,9 @@ class MenuViewController: UIViewController {
     private var backgroundImg = UIImageView()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        playSound()
         
         backgroundImg.image = UIImage(named: "mainBG")
         view.addSubview(backgroundImg)
@@ -46,6 +82,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(sender: AnyObject) {
+        stopSound()
         let chooseEggVC = ChooseEggViewController()
         chooseEggVC.modalTransitionStyle = .FlipHorizontal
         presentViewController(chooseEggVC, animated: true, completion: nil)

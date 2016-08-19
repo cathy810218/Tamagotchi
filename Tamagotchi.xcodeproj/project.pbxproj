@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11FA948E589895A6F8F18B8F /* Pods_Tamagotchi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB41D87CE17AF98DB76234E /* Pods_Tamagotchi.framework */; };
+		58C9F98E1D67025600466B67 /* harlem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58C9F98C1D67025600466B67 /* harlem.mp3 */; };
+		58C9F98F1D67025600466B67 /* penny.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58C9F98D1D67025600466B67 /* penny.mp3 */; };
 		6B00F0EF1D66ECB9005FDAD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B00F0EE1D66ECB9005FDAD7 /* Assets.xcassets */; };
 		6B333BBE1D6621E50007D446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B333BBD1D6621E50007D446 /* AppDelegate.swift */; };
 		6B333BC01D6621E50007D446 /* ChickenScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B333BBF1D6621E50007D446 /* ChickenScene.sks */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58C9F98C1D67025600466B67 /* harlem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = harlem.mp3; sourceTree = "<group>"; };
+		58C9F98D1D67025600466B67 /* penny.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = penny.mp3; sourceTree = "<group>"; };
 		68569FC489723AF1C878A9F2 /* Pods-Tamagotchi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi.release.xcconfig"; sourceTree = "<group>"; };
 		6B00F0EE1D66ECB9005FDAD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B333BBA1D6621E50007D446 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +89,8 @@
 				6BC1480E1D6632DE00B16718 /* Model */,
 				6B333BBD1D6621E50007D446 /* AppDelegate.swift */,
 				6B333BBF1D6621E50007D446 /* ChickenScene.sks */,
+				58C9F98C1D67025600466B67 /* harlem.mp3 */,
+				58C9F98D1D67025600466B67 /* penny.mp3 */,
 				6B333BCD1D6621E50007D446 /* Info.plist */,
 				6B00F0EE1D66ECB9005FDAD7 /* Assets.xcassets */,
 			);
@@ -188,9 +194,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58C9F98F1D67025600466B67 /* penny.mp3 in Resources */,
 				6B333BC01D6621E50007D446 /* ChickenScene.sks in Resources */,
 				6B333BCC1D6621E50007D446 /* LaunchScreen.storyboard in Resources */,
 				6B00F0EF1D66ECB9005FDAD7 /* Assets.xcassets in Resources */,
+				58C9F98E1D67025600466B67 /* harlem.mp3 in Resources */,
 				6B333BC71D6621E50007D446 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
