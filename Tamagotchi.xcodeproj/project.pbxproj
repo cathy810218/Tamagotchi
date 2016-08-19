@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		11FA948E589895A6F8F18B8F /* Pods_Tamagotchi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB41D87CE17AF98DB76234E /* Pods_Tamagotchi.framework */; };
+		6B00F0EF1D66ECB9005FDAD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B00F0EE1D66ECB9005FDAD7 /* Assets.xcassets */; };
 		6B333BBE1D6621E50007D446 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B333BBD1D6621E50007D446 /* AppDelegate.swift */; };
 		6B333BC01D6621E50007D446 /* ChickenScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6B333BBF1D6621E50007D446 /* ChickenScene.sks */; };
 		6B333BC71D6621E50007D446 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B333BC51D6621E50007D446 /* Main.storyboard */; };
 		6B333BCC1D6621E50007D446 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B333BCA1D6621E50007D446 /* LaunchScreen.storyboard */; };
 		6BC148091D66278500B16718 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC148081D66278500B16718 /* MenuViewController.swift */; };
-		6BC1480B1D662FE400B16718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BC1480A1D662FE400B16718 /* Assets.xcassets */; };
 		6BC1480D1D6632D500B16718 /* ChooseEggViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC1480C1D6632D500B16718 /* ChooseEggViewController.swift */; };
 		6BC148121D66AEBE00B16718 /* ChickenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC148111D66AEBE00B16718 /* ChickenViewController.swift */; };
 		6BC148381D66B73900B16718 /* HatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC148371D66B73900B16718 /* HatchViewController.swift */; };
@@ -22,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		68569FC489723AF1C878A9F2 /* Pods-Tamagotchi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi.release.xcconfig"; sourceTree = "<group>"; };
+		6B00F0EE1D66ECB9005FDAD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B333BBA1D6621E50007D446 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B333BBD1D6621E50007D446 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B333BBF1D6621E50007D446 /* ChickenScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ChickenScene.sks; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		6B333BCB1D6621E50007D446 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B333BCD1D6621E50007D446 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BC148081D66278500B16718 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		6BC1480A1D662FE400B16718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BC1480C1D6632D500B16718 /* ChooseEggViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseEggViewController.swift; sourceTree = "<group>"; };
 		6BC148111D66AEBE00B16718 /* ChickenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChickenViewController.swift; sourceTree = "<group>"; };
 		6BC148371D66B73900B16718 /* HatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HatchViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 				6B333BBD1D6621E50007D446 /* AppDelegate.swift */,
 				6B333BBF1D6621E50007D446 /* ChickenScene.sks */,
 				6B333BCD1D6621E50007D446 /* Info.plist */,
-				6BC1480A1D662FE400B16718 /* Assets.xcassets */,
+				6B00F0EE1D66ECB9005FDAD7 /* Assets.xcassets */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 			files = (
 				6B333BC01D6621E50007D446 /* ChickenScene.sks in Resources */,
 				6B333BCC1D6621E50007D446 /* LaunchScreen.storyboard in Resources */,
-				6BC1480B1D662FE400B16718 /* Assets.xcassets in Resources */,
+				6B00F0EF1D66ECB9005FDAD7 /* Assets.xcassets in Resources */,
 				6B333BC71D6621E50007D446 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
