@@ -12,7 +12,7 @@ import SnapKit
 
 class ChickenViewController: UIViewController {
     
-    private let toMini = UIButton()
+    private let toMiniGameButton = UIButton()
 
     
     var petType: String?
@@ -73,21 +73,15 @@ class ChickenViewController: UIViewController {
             make.size.equalTo(CGSizeMake(100, 100))
         }
         
-        
-        
-        
-        
-        // toMini
+      // toMini
         let photo = UIImage(named: "game")
-        toMini.setBackgroundImage(photo, forState: .Normal)
-        toMini.addTarget(self, action: #selector(toMiniGame(_:)), forControlEvents: .TouchUpInside)
-        view.addSubview(toMini)
-        
-        
-        toMini.snp_makeConstraints { (make) in
-            make.bottom.equalTo(view).offset(20)
-            make.left.equalTo(10)
-            make.size.equalTo(CGSizeMake(100, 100))
+        toMiniGameButton.setBackgroundImage(photo, forState: .Normal)
+        toMiniGameButton.addTarget(self, action: #selector(toMiniGame(_:)), forControlEvents: .TouchUpInside)
+        view.addSubview(toMiniGameButton)
+        toMiniGameButton.snp_makeConstraints { (make) in
+            make.left.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(20)
+            make.size.equalTo(CGSizeMake(80, 80))
         }
         
         // add eating action
@@ -204,10 +198,6 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         
         collectionView.reloadData()
         eating()
-
-        self.petImageView.stopAnimating()
-        
-        
         
     }
 }

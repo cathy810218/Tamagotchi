@@ -12,7 +12,6 @@ import AVFoundation;
 
 class GameScene: SKScene {
     
-    
     var backgroundMusicPlayer: AVAudioPlayer!
     var time = 120
     var index = 0
@@ -59,7 +58,6 @@ class GameScene: SKScene {
     func addScoreLabel(){
         
         
-        
         scoreLabel.fontSize = 100
         scoreLabel.fontColor = SKColor.whiteColor()
         scoreLabel.text =   "SCORE: 0"
@@ -90,7 +88,6 @@ class GameScene: SKScene {
         
         addTimeLabel()
         addScoreLabel()
-        
         
         runAction((SKAction.repeatActionForever(
             
