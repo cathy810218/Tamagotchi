@@ -50,6 +50,9 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         
         // petLabel
         petLabel.text = "You've got a chicken"
+        if (petType == "dragonEgg") {
+            petLabel.text = "You've got a dragon"
+        }
         petLabel.font = UIFont(name: "Chalkduster", size: 30)
         petLabel.hidden = true
         view.addSubview(petLabel)
@@ -104,12 +107,20 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         rotateDirection = !rotateDirection
         
         numberOfTapsSoFar += 1
-        if(numberOfTapsSoFar > 1) {
-            eggImgView.image = UIImage(named: "cracked_egg_1")
-        }
-        if (numberOfTapsSoFar > 2) {
-            eggImgView.image = UIImage(named: "cracked_egg_2")
-            
+        if (petType == "chickenEgg") {
+            if(numberOfTapsSoFar > 1) {
+                eggImgView.image = UIImage(named: "cracked_chicken_egg_1")
+            }
+            if (numberOfTapsSoFar > 2) {
+                eggImgView.image = UIImage(named: "cracked_chicken_egg_2")
+            }
+        } else {
+            if(numberOfTapsSoFar > 1) {
+                eggImgView.image = UIImage(named: "cracked_dragon_egg_1")
+            }
+            if (numberOfTapsSoFar > 2) {
+                eggImgView.image = UIImage(named: "cracked_dragon_egg_2")
+            }
         }
         
         if (numberOfTapsSoFar > 3) {
@@ -117,6 +128,9 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 }, completion: { (true) in
                     self.eggImgView.image = UIImage(named: "chicken_close")
+                    if (self.petType == "dragonEgg") {
+                        self.eggImgView.image = UIImage(named: "dragon_close")
+                    }
                     self.nextButton.hidden = false
                     self.titleLabel.text = "YAY!"
                     self.petLabel.hidden = false
