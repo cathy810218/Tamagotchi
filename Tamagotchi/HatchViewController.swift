@@ -16,6 +16,7 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
     private let eggImgView = UIImageView()
     private let titleLabel = UILabel()
     private let backButton = UIButton()
+    private let nextButton = UIButton()
     
     func gestureRecognizer(_: UIGestureRecognizer,
         shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
@@ -45,9 +46,18 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
             make.centerX.equalTo(self.view)
             make.top.equalTo(80)
         }
-        let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        
+        // next button
+        view.addSubview(nextButton)
+        nextButton.snp_makeConstraints { (make) in
+            make.top.equalTo(eggImgView.snp_bottom).offset(100)
+            
+        }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tap.delegate = self
         eggImgView.addGestureRecognizer(tap)
+        
     }
     
     var rotateDirection = true
@@ -66,7 +76,7 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         self.eggImgView.transform = CGAffineTransformMakeRotation(0)
         rotateDirection = !rotateDirection
         
-        numberOfTapsSoFar++;
+        numberOfTapsSoFar += 1
         if(numberOfTapsSoFar > 1) {
             eggImgView.image = UIImage(named: "cracked_egg_1")
         }
