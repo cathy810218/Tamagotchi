@@ -39,6 +39,17 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         eggImgView.image = UIImage(named: petType!)
         eggImgView.userInteractionEnabled = true
         
+        let back = UIImage(named: "pre")
+        backButton.setBackgroundImage(back, forState: .Normal)
+        backButton.addTarget(self, action: #selector(backToMenu(_:)), forControlEvents: .TouchUpInside)
+        view.addSubview(backButton)
+        
+        backButton.snp_makeConstraints { (make) in
+            make.top.equalTo(eggImgView.snp_bottom).offset(100)
+            make.centerX.equalTo(view)
+            make.size.equalTo(CGSizeMake(100, 100))
+        }
+
         // title label
         titleLabel.text = "Tap to Hatch"
         titleLabel.font = UIFont(name: "Chalkduster", size: 30)
@@ -90,6 +101,12 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    func backToMenu(sender: UIButton) {
+        let chooseVC = ChooseEggViewController()
+        self.presentViewController(chooseVC, animated: true, completion: nil)
+        
+    }
+    
     var rotateDirection = true
     var rotateAngle: CGFloat = 0
     func handleTap(sender: UITapGestureRecognizer? = nil) {
@@ -131,6 +148,7 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
                     if (self.petType == "dragonEgg") {
                         self.eggImgView.image = UIImage(named: "dragon_close")
                     }
+                    self.backButton.hidden = true
                     self.nextButton.hidden = false
                     self.titleLabel.text = "YAY!"
                     self.petLabel.hidden = false
