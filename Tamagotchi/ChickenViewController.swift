@@ -14,14 +14,17 @@ class ChickenViewController: UIViewController {
     
     var petType: String?
     var collectionView: UICollectionView?
+
     private var backgroundView = UIImageView()
     private var petImageView = UIImageView()
     private var foodArray = [UIImage]()
-    private var motionImage = [UIImage]()
+    private var motionImages = [UIImage]()
+    private var eatingImages = [UIImage]()
     private var weaponArray = [UIImage]()
     private var currentFoodImageView = UIImageView()
     private var foodButton    = UIButton()
     private var weaponButton  = UIButton()
+    private var selectedArray: [UIImage]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +38,15 @@ class ChickenViewController: UIViewController {
         if let petType = petType {
             switch petType {
             case "chicken":
-                motionImage.append(UIImage(named: "chicken_left")!)
-                motionImage.append(UIImage(named: "chicken_close")!)
-                motionImage.append(UIImage(named: "chicken_right")!)
-                petImageView.animationImages = motionImage
+                motionImages.append(UIImage(named: "chicken_left")!)
+                motionImages.append(UIImage(named: "chicken_close")!)
+                motionImages.append(UIImage(named: "chicken_right")!)
+                petImageView.animationImages = motionImages
                 petImageView.image = UIImage(named: "chicken_close")!
                 
             case "dragon" :
-                motionImage.append(UIImage(named: "chicken")!)
-                motionImage.append(UIImage(named: "chicken_close")!)
+                motionImages.append(UIImage(named: "chicken")!)
+                motionImages.append(UIImage(named: "chicken_close")!)
             default:
                 break
             }
@@ -67,6 +70,7 @@ class ChickenViewController: UIViewController {
             make.width.equalTo(view)
             make.height.equalTo(220)
         }
+        self.collectionView = collectionView
         
         view.addSubview(petImageView)
         petImageView.snp_makeConstraints { (make) in
@@ -74,6 +78,10 @@ class ChickenViewController: UIViewController {
             make.bottom.equalTo(collectionView.snp_top).offset(0)
             make.size.equalTo(CGSizeMake(100, 100))
         }
+        
+        // add eating action
+        eatingImages.append(UIImage(named: "chicken_close")!)
+        eatingImages.append(UIImage(named: "chicken_open")!)
         
         // add food
         foodArray.append(UIImage(named: "cake")!)
@@ -108,39 +116,50 @@ class ChickenViewController: UIViewController {
             make.right.equalTo(weaponButton).offset(-50)
             make.size.equalTo(CGSizeMake(50, 50))
         }
+        
+        petImageView.animationDuration = 2.5
+        petImageView.startAnimating()
+        selectedArray = foodArray
     }
     
     func showFoods(sender: UIButton) {
-        petImageView.animationDuration = 2.5
-        petImageView.startAnimating()
-        
-        
-        
+        selectedArray = foodArray
         collectionView?.hidden = false
         collectionView?.reloadData()
     }
     
     func showWeapons(sender: UIButton) {
+        selectedArray = weaponArray
         collectionView?.hidden = false
         collectionView?.reloadData()
 
     }
     
-    func eating() {
-//        currentFoodImageView.animate
+    func eating(completion: (completion: String) -> Void) {
+        petImageView.animationRepeatCount = 3
+        petImageView.animationImages = eatingImages
+        petImageView.animationDuration = 2
+        petImageView.startAnimating()
+        
     }
 }
 
 //MARK: UICollectionView
 extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return foodArray.count
+        return selectedArray!.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ToolCell",
                                                                          forIndexPath: indexPath) as! ToolBarCell
-        cell.imageView.image = foodArray[indexPath.row]
+        cell.imageView.image = selectedArray![indexPath.row]
+        if selectedArray!.count == 0 {
+            let ohNolabel = UILabel()
+            ohNolabel.text = "NO MORE FOOD"
+            collectionView.addSubview(ohNolabel)
+            
+        }
         
         return cell
     }
@@ -152,7 +171,7 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         petImageView.image = UIImage(named: "chicken_open")
         
         // get the food that's selected
-        currentFoodImageView.image = foodArray[indexPath.row]
+        currentFoodImageView.image = selectedArray![indexPath.row]
         
         // feed it
         view.addSubview(currentFoodImageView)
@@ -165,7 +184,7 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         foodArray.removeAtIndex(indexPath.row)
         collectionView.reloadData()
         
-        eating()
+
     }
 }
 
