@@ -239,10 +239,10 @@ class GameScene: SKScene {
         var imagename = ""
         switch rad{
         case 0:
-            imagename = "chicken"
+            imagename = "chicken_close"
             movement = "left"
         case 1:
-            imagename = "dragon"
+            imagename = "dragon_close"
             movement = "right"
             
         case 2:

@@ -12,6 +12,9 @@ import SnapKit
 
 class ChickenViewController: UIViewController {
     
+    private let toMini = UIButton()
+
+    
     var petType: String?
     var collectionView: UICollectionView?
 
@@ -70,11 +73,27 @@ class ChickenViewController: UIViewController {
             make.size.equalTo(CGSizeMake(100, 100))
         }
         
-        if let petType = petType {
-            // add eating action
-            eatingImages.append(UIImage(named: petType + "_close")!)
-            eatingImages.append(UIImage(named: petType + "_open")!)
+        
+        
+        
+        
+        // toMini
+        let photo = UIImage(named: "game")
+        toMini.setBackgroundImage(photo, forState: .Normal)
+        toMini.addTarget(self, action: #selector(toMiniGame(_:)), forControlEvents: .TouchUpInside)
+        view.addSubview(toMini)
+        
+        
+        toMini.snp_makeConstraints { (make) in
+            make.bottom.equalTo(view).offset(20)
+            make.left.equalTo(10)
+            make.size.equalTo(CGSizeMake(100, 100))
         }
+        
+        // add eating action
+        eatingImages.append(UIImage(named: "chicken_close")!)
+        eatingImages.append(UIImage(named: "chicken_open")!)
+        
         // add food
         foodArray.append(UIImage(named: "cake")!)
         foodArray.append(UIImage(named: "cherry")!)
@@ -155,6 +174,15 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
     
+    
+    
+    func toMiniGame(sender: UIButton) {
+        let storyboardY = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboardY.instantiateViewControllerWithIdentifier("instruction") as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         petImageView.stopAnimating()
         
@@ -176,10 +204,8 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         
         collectionView.reloadData()
         eating()
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(5 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            self.petImageView.stopAnimating()
-        }
+
+        self.petImageView.stopAnimating()
         
         
         
