@@ -24,12 +24,19 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var TitleLabel: UILabel!
     
+    private var backgroundImg = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(backgroundImg)
+        
         startButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
         settingsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
         aboutButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
         TitleLabel.font = UIFont(name: "Chalkduster", size: 40)
+        
+        
     }
     
     @IBAction func startButtonPressed(sender: AnyObject) {
