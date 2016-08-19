@@ -66,19 +66,6 @@ class ChooseEggViewController: UIViewController {
             make.width.equalTo(view)
         }
         
-        let back = UIImage(named: "pre")
-        backButton.setBackgroundImage(back, forState: .Normal)
-        backButton.addTarget(self, action: #selector(backToMenu(_:)), forControlEvents: .TouchUpInside)
-        view.addSubview(backButton)
-        
-        
-        backButton.snp_makeConstraints { (make) in
-            make.bottom.equalTo(view).offset(20)
-            make.left.equalTo(10)
-            make.size.equalTo(eggSize)
-        }
-        
-        
         let dragImg = UIImage(named: "dragonEgg")
         dragonEgg.setBackgroundImage(dragImg, forState: .Normal)
         dragonEgg.addTarget(self, action: #selector(eggButtonPressed(_:)), forControlEvents: .TouchUpInside)
@@ -117,13 +104,7 @@ class ChooseEggViewController: UIViewController {
             make.right.equalTo(-30)
         }
     }
-    func backToMenu(sender: UIButton) {
-        let storyboardY = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboardY.instantiateViewControllerWithIdentifier("MenuViewController") as! UIViewController
-        self.presentViewController(vc, animated: true, completion: nil)
-        
-    }
-    
+
    
     
     func eggButtonPressed(sender: UIButton) {
