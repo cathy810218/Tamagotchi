@@ -67,7 +67,7 @@ class ChickenViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.snp_makeConstraints { (make) in
             make.bottom.equalTo(view)
-            make.width.equalTo(view)
+            make.right.left.equalTo(view)
             make.height.equalTo(220)
         }
         self.collectionView = collectionView
@@ -123,14 +123,14 @@ class ChickenViewController: UIViewController {
     }
     
     func showFoods(sender: UIButton) {
+        selectedArray?.removeAll()
         selectedArray = foodArray
-        collectionView?.hidden = false
         collectionView?.reloadData()
     }
     
     func showWeapons(sender: UIButton) {
+        selectedArray?.removeAll()
         selectedArray = weaponArray
-        collectionView?.hidden = false
         collectionView?.reloadData()
 
     }
@@ -180,8 +180,8 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
             make.right.equalTo(petImageView.snp_left).offset(50)
             make.centerY.equalTo(petImageView).offset(20)
         }
+        selectedArray?.removeAtIndex(indexPath.row)
         
-        foodArray.removeAtIndex(indexPath.row)
         collectionView.reloadData()
         
 
