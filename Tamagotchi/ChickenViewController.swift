@@ -36,21 +36,12 @@ class ChickenViewController: UIViewController {
         }
         
         if let petType = petType {
-            switch petType {
-            case "chicken":
-                motionImages.append(UIImage(named: "chicken_left")!)
-                motionImages.append(UIImage(named: "chicken_close")!)
-                motionImages.append(UIImage(named: "chicken_right")!)
+
+                motionImages.append(UIImage(named: petType + "_left")!)
+                motionImages.append(UIImage(named: petType + "_close")!)
+                motionImages.append(UIImage(named: petType + "_right")!)
                 petImageView.animationImages = motionImages
-                petImageView.image = UIImage(named: "chicken_close")!
-                
-            case "dragon" :
-                motionImages.append(UIImage(named: "chicken")!)
-                motionImages.append(UIImage(named: "chicken_close")!)
-            default:
-                break
-            }
-            
+                petImageView.image = UIImage(named: petType + "_close")!
         }
         
         let flowLayout = UICollectionViewFlowLayout()
@@ -79,10 +70,11 @@ class ChickenViewController: UIViewController {
             make.size.equalTo(CGSizeMake(100, 100))
         }
         
-        // add eating action
-        eatingImages.append(UIImage(named: "chicken_close")!)
-        eatingImages.append(UIImage(named: "chicken_open")!)
-        
+        if let petType = petType {
+            // add eating action
+            eatingImages.append(UIImage(named: petType + "_close")!)
+            eatingImages.append(UIImage(named: petType + "_open")!)
+        }
         // add food
         foodArray.append(UIImage(named: "cake")!)
         foodArray.append(UIImage(named: "cherry")!)
@@ -167,7 +159,7 @@ extension ChickenViewController: UICollectionViewDataSource, UICollectionViewDel
         petImageView.stopAnimating()
         
         // pet opens its mouse
-        petImageView.image = UIImage(named: "chicken_open")
+        petImageView.image = UIImage(named: "\(self.petType)_open")
         
         // get the food that's selected
         currentFoodImageView.image = selectedArray![indexPath.row]
