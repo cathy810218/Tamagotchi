@@ -165,6 +165,9 @@ class HatchViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let checkenVC = ChickenViewController()
         checkenVC.petType = "chicken"
+        if (petType == "dragonEgg") {
+            checkenVC.petType = "dragon"
+        }
         presentViewController(checkenVC, animated: false, completion: nil)
     }
 }
