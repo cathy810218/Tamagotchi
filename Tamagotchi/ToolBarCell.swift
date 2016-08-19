@@ -13,6 +13,9 @@ class ToolBarCell: UICollectionViewCell {
     var imageView: UIImageView!
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.grayColor()
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
         
         imageView = UIImageView()
         imageView.clipsToBounds = true
