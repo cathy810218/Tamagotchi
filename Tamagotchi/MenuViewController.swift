@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 enum UIModalTransitionStyle : Int {
     case CoverVertical = 0
@@ -29,7 +30,12 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        backgroundImg.image = UIImage(named: "mainBG")
         view.addSubview(backgroundImg)
+        backgroundImg.snp_makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        view.sendSubviewToBack(backgroundImg)
         
         startButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
         settingsButton.titleLabel?.font = UIFont(name: "Chalkduster", size: 30)
