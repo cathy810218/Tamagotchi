@@ -18,6 +18,8 @@
 		6BC148121D66AEBE00B16718 /* ChickenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC148111D66AEBE00B16718 /* ChickenViewController.swift */; };
 		6BC148381D66B73900B16718 /* HatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC148371D66B73900B16718 /* HatchViewController.swift */; };
 		6BC1483A1D66C8C600B16718 /* ToolBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC148391D66C8C600B16718 /* ToolBarCell.swift */; };
+		71892E231D66E38300603080 /* harlem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71892E221D66E38300603080 /* harlem.mp3 */; };
+		71892E251D66E38C00603080 /* penny.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71892E241D66E38C00603080 /* penny.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		6BC148371D66B73900B16718 /* HatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HatchViewController.swift; sourceTree = "<group>"; };
 		6BC148391D66C8C600B16718 /* ToolBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarCell.swift; sourceTree = "<group>"; };
 		6EB41D87CE17AF98DB76234E /* Pods_Tamagotchi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tamagotchi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71892E221D66E38300603080 /* harlem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = harlem.mp3; sourceTree = "<group>"; };
+		71892E241D66E38C00603080 /* penny.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = penny.mp3; sourceTree = "<group>"; };
 		78DF5C4DB7C385AB1CE8DADD /* Pods-Tamagotchi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,8 @@
 				6B333BBF1D6621E50007D446 /* ChickenScene.sks */,
 				6B333BCD1D6621E50007D446 /* Info.plist */,
 				6BC1480A1D662FE400B16718 /* Assets.xcassets */,
+				71892E221D66E38300603080 /* harlem.mp3 */,
+				71892E241D66E38C00603080 /* penny.mp3 */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -191,7 +197,9 @@
 				6B333BC01D6621E50007D446 /* ChickenScene.sks in Resources */,
 				6B333BCC1D6621E50007D446 /* LaunchScreen.storyboard in Resources */,
 				6BC1480B1D662FE400B16718 /* Assets.xcassets in Resources */,
+				71892E231D66E38300603080 /* harlem.mp3 in Resources */,
 				6B333BC71D6621E50007D446 /* Main.storyboard in Resources */,
+				71892E251D66E38C00603080 /* penny.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
